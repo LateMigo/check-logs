@@ -1,0 +1,24 @@
+name: check-logs
+
+on:
+
+ push:
+  branches: ["main", "master"]
+ pull_request:
+  branches: ["main", "master"]
+jobs:
+ build:
+  runs-on: ubuntu-latest
+  steps:
+   - uses: actions/checkout@v4
+   - name: check-logs
+     run: chmod +x check-logs.sh
+   - name: check-logs
+     shell: bash 
+     run: ./check-logs.sh ./logs | tee output.txt
+   - name: check-logs
+     if: always()
+     uses: actions/upload-artifact@v4
+     with:
+      name: check-logs
+      path: output.txt
