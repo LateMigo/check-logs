@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 katalog="${1:-.}"
-if [ -z "$(find ${katalog} -name *.log" -type f)" ]; then
+if [ -z "$(find ${katalog} -name *.log -type f)" ]; then
     echo "Nie ma zadnego pliku z rozszerzeniem .log (0)"
     exit 0
 fi
